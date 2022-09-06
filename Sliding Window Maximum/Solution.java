@@ -1,3 +1,6 @@
+import java.util.Deque;
+import java.util.LinkedList;
+
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
         //the brute force solution is to iterate over the array 
