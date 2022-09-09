@@ -1,7 +1,6 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         
-        int[] mergedArray=new int[m+n];
         
         int nums1Len=nums1.length-1;
         
