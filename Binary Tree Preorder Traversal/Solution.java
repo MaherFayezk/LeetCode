@@ -2,6 +2,8 @@
 class Solution {
     
 //Iterative approach
+//TC O(n)
+//SC O(n) for the stack
 public List<Integer> preorderTraversal(TreeNode root) {
         
         List<Integer> preorderList=new LinkedList();
@@ -25,6 +27,8 @@ public List<Integer> preorderTraversal(TreeNode root) {
    }
 
 //Recursive approach
+//TC O(n)
+//SC O(n) for the recursion call stack
 public List<Integer> preorderTraversal1(TreeNode root) {
         
         List<Integer> preorderList=new LinkedList();
