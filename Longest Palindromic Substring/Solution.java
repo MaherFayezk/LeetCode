@@ -1,4 +1,6 @@
 class Solution {
+//TC O(n^2)
+//SC O(1)
     public String longestPalindrome(String s) {
         //broute force approach generate all possible substrings and check 
         //each one of them is a palindrome takse O(n^3)
