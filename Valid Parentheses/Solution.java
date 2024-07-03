@@ -1,45 +1,57 @@
-import java.util.Stack;
+///////////////////////  review ///////////////////////
+/*
+https://leetcode.com/problems/valid-parentheses/description/
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+ 
+
+Example 1:
+
+Input: s = "()"
+Output: true
+Example 2:
+
+Input: s = "()[]{}"
+Output: true
+Example 3:
+
+Input: s = "(]"
+Output: false
+*/
+
+
 class Solution {
  public boolean isValid(String s) {
-//Create a stack to hold the closing parentheses
-//iterate over the String 
-//if the parenthes is an opening one add its closing 
-//if it is a closing one check if it equals the peek of the stack 
-//if the stack is empty or the parenthes != peek return false otherwise pop
-//finally check if the sack empty retrun true otherwise false
-//TC : O(n) 
-//SC: O(n)
-     if(s.length()<2){
-         return false;
-     }
-       Stack<Character> holder = new Stack<Character>();
-        for (char c : s.toCharArray()) {
-            if(c== '('){
-                 holder.push(')');
-            }
-            else if(c== '['){
-                 holder.push(']');
-            }
-            else if(c=='{'){
-                holder.push('}');
-            }
-                    
-            else if (holder.isEmpty()|| c != holder.peek()) {
+        Stack<Character> stack = new Stack();
+        for(char c : s.toCharArray()){
+            if(c=='(') 
+                stack.push(')');
+            else if(c=='{') 
+                stack.push('}');
+            else if(c=='[') 
+                stack.push(']');
+            else if(stack.isEmpty() || stack.pop() != c) 
                 return false;
-            }
-            else  {
-                holder.pop();
-            }
         }
-
-        if (!holder.isEmpty()) {
-            return false;
-        }
-        return true;
+        return stack.isEmpty();
     }
 
-
-
-
-
+    public boolean isValid2(String s) {
+        Stack<Character> stack = new Stack();
+        Map<Character, Character> map = new HashMap();
+        map.put('(', ')');
+        map.put('{', '}');
+        map.put('[', ']');
+        for(char c : s.toCharArray()){
+            if(map.containsKey(c)) 
+                stack.push(c);
+            else if(stack.isEmpty() || map.get(stack.pop()) != c) 
+                return false;
+        }
+        return stack.isEmpty();
+    }
 }

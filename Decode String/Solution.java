@@ -1,24 +1,33 @@
-import java.util.Stack;
+///////////////////////////// To Review //////////////////////////////  
+//https://leetcode.com/problems/decode-string/description/
+/*Given an encoded string, return its decoded string.
+
+The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
+
+You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there will not be input like 3a or 2[4].
+
+The test cases are generated so that the length of the output will never exceed 105.
+
+ 
+
+Example 1:
+
+Input: s = "3[a]2[bc]"
+Output: "aaabcbc"
+Example 2:
+
+Input: s = "3[a2[c]]"
+Output: "accaccacc"
+Example 3:
+
+Input: s = "2[abc]3[cd]ef"
+Output: "abcabccdcdcdef"
+*/
+//TC O(n*K)
+//SC O(n)
 class Solution {
     public String decodeString(String s) {
-        //the Brute force solution to this problem is to iterate over the string 
-        //if [ found, loop to find the most inner [] 
-        //get the substring between [] and insert this string the number of time ex 3[a]
-        
-        //Better solution 
-        //Create a string builder and a temp String and 2 stackes one for nums 
-        //and one for characters 
-        //iterate over the codeed String 
-        //if char is a numm add it to the num stack 
-        //else if it is [ insert what is insdie the sb to the string stack and sb=""
-        //if we have ] pop from the num stack 
-        //repeat whatever in sb number poped 
-        //pop from string stack and add to the temp
-        //append sb to the temp 
-        //now empty the temp
-        //else (apphabitic char) add it to the sb 
-        //TC O(n*K)
-        //SC O(n)
+      
         
         Stack<Integer> numStack=new Stack<>();
         Stack<String> stringStack=new Stack<>();
